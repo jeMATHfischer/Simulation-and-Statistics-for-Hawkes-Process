@@ -15,7 +15,7 @@ from scipy.optimize import fmin
 
 class Hawkes():
 
-    def __init__(self,temporal, param, phi = lambda x: x + 2, mon_kernel = True):
+    def __init__(self, temporal, param, phi = lambda x: x + 2, mon_kernel = True):
         self.temporal = temporal
         self.Events = np.array([0])
         self.Sim_num = 0
