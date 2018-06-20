@@ -18,7 +18,7 @@ def DataGenerator(inp):
     
     param = inp
     alpha = 1
-    th = 10
+    th = 50
     
     expl_proc = []
     count_1 = 0
@@ -43,7 +43,7 @@ def DataGenerator(inp):
     
     for i in range(100):
         print('Für Parameter ({},{}) count_nr: {}'.format(param[0],param[1],count_1))
-        H = Hawkes(HawkesIntensity_temporal, param, mon_kernel = True)
+        H = Hawkes(HawkesIntensity_temporal, param, phi = lambda s: (1+s)**2/(2+s), mon_kernel = True)
         deleter(H, alpha, th)
         if (H.density(H.Events[-1]) >= th): #or (alpha*H.param[0]/H.param[1] < 1):     
             vars()['H_' + str(count_1)] = H
